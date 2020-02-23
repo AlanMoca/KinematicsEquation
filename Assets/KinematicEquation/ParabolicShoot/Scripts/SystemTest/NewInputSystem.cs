@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 using UnityEngine.InputSystem.Utilities;
 
 public class NewInputSystem : MonoBehaviour
@@ -121,10 +122,14 @@ public class NewInputSystem : MonoBehaviour
     private void WithMap()
     {
         //Obtenemos el mapa del asset
-        mapa = AssetEntrada.GetActionMap( "Canon" );
+        //mapa = AssetEntrada.GetActionMap( "Canon" );          //Viejo?
+        mapa = AssetEntrada.FindActionMap( "Canon" );           //nuevo en la version?
 
-        miMovimientoMapa = mapa.GetAction( "Movimiento" );
-        miDisparoMapa = mapa.GetAction( "Launch" );
+        //miMovimientoMapa = mapa.GetAction( "Movimiento" );
+        //miDisparoMapa = mapa.GetAction( "Launch" );
+
+        miMovimientoMapa = mapa.FindAction( "Movimiento" );
+        miDisparoMapa = mapa.FindAction( "Launch" );
 
     }
 
